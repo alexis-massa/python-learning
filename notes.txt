@@ -1,0 +1,14 @@
+
+video_to_ascii_video
+    video to images (frames)
+    for each image
+        img_to_ascii
+            resize
+            grayify
+            toascii
+            save
+
+    for each out/*.txt
+        txt to img
+    
+    from out/image create video

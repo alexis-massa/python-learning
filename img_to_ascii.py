@@ -1,16 +1,14 @@
-import sys
 import PIL.Image
 
 # ascii characters
 ASCII_CHARS = ["B", "S", "#", "&", "@", "$", "%", "*", "!", ":", "."]
 
 # pass the image as command line argument
-image_path = sys.argv[1]
-img = PIL.Image.open(image_path)
-new_width = 120
+# image_path = sys.argv[1]
+# new_width = 360
 
 # resize the image
-def resize_img(img):
+def resize_img(img, new_width):
     width, height = img.size
     aspect_ratio = height/width
 
@@ -32,17 +30,17 @@ def px_to_ascii(img):
 
 # write to a text file.
 def save(img, filename):
-    file_path = "img/" + filename + ".txt"
+    file_path = "out/" + filename + ".txt"
     with open(file_path, "w") as f:
         f.write(img)
 
-def convert(image_path, filename):
+def convert(image_path, filename, new_width):
     try:
         image = PIL.Image.open(image_path)
     except:
         print(image_path, " isn't valid")
 
-    resized_img = resize_img(image)
+    resized_img = resize_img(image, new_width)
     gray_img = grayify(resized_img)
     new_pixels = px_to_ascii(gray_img)
 
@@ -51,6 +49,6 @@ def convert(image_path, filename):
     ascii_image = [new_pixels[index:index + new_width] for index in range(0, new_pixels_count, new_width)]
     ascii_image = "\n".join(ascii_image)
     save(ascii_image, filename)
-    # print(ascii_image)
-
-convert(image_path, 'test')
+    print(ascii_image)
+ 
+convert('./img/1.jpg', '1', 360)
