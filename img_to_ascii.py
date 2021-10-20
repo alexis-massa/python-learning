@@ -34,7 +34,7 @@ def save(img, filename):
     with open(file_path, "w") as f:
         f.write(img)
 
-def convert(image_path, filename, new_width):
+def im_to_ascii(image_path, filename, new_width):
     try:
         image = PIL.Image.open(image_path)
     except:
@@ -49,6 +49,6 @@ def convert(image_path, filename, new_width):
     ascii_image = [new_pixels[index:index + new_width] for index in range(0, new_pixels_count, new_width)]
     ascii_image = "\n".join(ascii_image)
     save(ascii_image, filename)
-    print(ascii_image)
+    # print(ascii_image)
  
-convert('./img/1.jpg', '1', 360)
+im_to_ascii('./img/1.jpg', '1', 480) # Test

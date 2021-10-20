@@ -1,14 +1,17 @@
+video_to_ascii_video(param: video_path)
 
-video_to_ascii_video
-    video to images (frames)
-    for each image
-        img_to_ascii
+    video to images(video_path) OK
+        for each image in video
+            save image in img/
+
+    for each image in img/
+        img_to_ascii(input_path, output_name, new_width) OK
             resize
             grayify
             toascii
             save
 
     for each out/*.txt
-        txt to img
+        text to img asci_img/
     
-    from out/image create video
+    from ascii_img/* create video
