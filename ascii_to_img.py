@@ -79,4 +79,4 @@ def textfile_to_image(textfile_path):
     return image
 
 
-ascii_to_img('./txt/1.txt')
+# ascii_to_img('./txt/1.txt') # Test

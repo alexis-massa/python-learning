@@ -4,11 +4,10 @@ def getFrame(sec, count, vidcap):
     vidcap.set(cv2.CAP_PROP_POS_MSEC,sec*1000)
     hasFrames,image = vidcap.read()
     if hasFrames:
-        cv2.imwrite("./frames/"+str(count)+".jpg", image)     # save frame as JPG file
+        cv2.imwrite("./tmp/frames/"+str(count)+".jpg", image)     # save frame as JPG file
     return hasFrames
 
-def video_to_img():
-    video_path = input("Input the video to convert: ")
+def video_to_img(video_path):
     vidcap = cv2.VideoCapture(video_path)
     sec = 0
     frameRate = 0.1 # it will capture image in each 0.1 second (10FPS)
