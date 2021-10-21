@@ -30,11 +30,11 @@ def px_to_ascii(img):
 
 # write to a text file.
 def save(img, filename):
-    file_path = "out/" + filename + ".txt"
+    file_path = "txt/" + filename + ".txt"
     with open(file_path, "w") as f:
         f.write(img)
 
-def im_to_ascii(image_path, filename, new_width):
+def img_to_ascii(image_path, filename, new_width):
     try:
         image = PIL.Image.open(image_path)
     except:
@@ -51,4 +51,4 @@ def im_to_ascii(image_path, filename, new_width):
     save(ascii_image, filename)
     # print(ascii_image)
  
-im_to_ascii('./img/1.jpg', '1', 480) # Test
+# img_to_ascii('./img/1.jpg', '1', 480) # Test
