@@ -1,5 +1,8 @@
 import cv2
 
+"""
+    Extract frame
+"""
 def getFrame(sec, count, vidcap):
     vidcap.set(cv2.CAP_PROP_POS_MSEC,sec*1000)
     hasFrames,image = vidcap.read()
@@ -7,6 +10,9 @@ def getFrame(sec, count, vidcap):
         cv2.imwrite("./tmp/frames/"+str(count)+".jpg", image)     # save frame as JPG file
     return hasFrames
 
+"""
+    Convert video to image
+"""
 def video_to_img(video_path):
     vidcap = cv2.VideoCapture(video_path)
     sec = 0

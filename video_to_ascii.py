@@ -22,9 +22,12 @@ import img_to_video
   Convert ascii_img/*.jpg to out/video.avi  - TODO
 """
 
-def main():
-
-  # Check if file exists
+"""
+  Checks if video exists
+  Recreate tmp directories
+"""
+def check(video_path):
+    # Check if file exists
   try:
     os.path.isfile(video_path)
   except:
@@ -40,14 +43,18 @@ def main():
   os.mkdir('./tmp/ascii_img')
   os.mkdir('./tmp/in')
   os.mkdir('./tmp/out')
-      
 
 
+def main():
+  # Input video path
+  video_path = input("Enter path for the video to convert: ")
+
+  # Perform checks
+  check(video_path)
+  
   # Extract frames from video
   video_to_img.video_to_img(video_path)
 
 
 
-# Input video path
-video_path = input("Enter path for the video to convert: ")
 main()
