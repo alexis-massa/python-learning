@@ -32,6 +32,7 @@ def check(video_path):
     os.path.isfile(video_path)
   except:
     print(video_path, " isn't valid")
+    return 0
 
   # Empty all directories
   try:
@@ -43,6 +44,7 @@ def check(video_path):
   os.mkdir('./tmp/ascii_img')
   os.mkdir('./tmp/in')
   os.mkdir('./tmp/out')
+  return 1
 
 
 def main():
@@ -50,7 +52,8 @@ def main():
   video_path = input("Enter path for the video to convert: ")
 
   # Perform checks
-  check(video_path)
+  if(check(video_path)==0):
+    exit
   
   # Extract frames from video
   video_to_img.video_to_img(video_path)
