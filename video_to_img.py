@@ -16,7 +16,7 @@ def getFrame(sec, count, vidcap):
 def video_to_img(video_path):
     vidcap = cv2.VideoCapture(video_path)
     sec = 0
-    frameRate = 0.1 # it will capture image in each 0.1 second (10FPS)
+    frameRate = 0.1 # it will capture image each 0.1 second (10FPS)
     count=1
     success = getFrame(sec, count, vidcap)
     while success:

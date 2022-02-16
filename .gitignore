@@ -128,10 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-frames/
-!frames/1.jpg
-out/
-!out/1.txt
-img/
-txt/
-!txt/1.txt
+tmp/

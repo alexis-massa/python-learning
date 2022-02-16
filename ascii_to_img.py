@@ -20,7 +20,7 @@ COMMON_MONO_FONT_FILENAMES = [
 def ascii_to_img(txt_path):
     image = textfile_to_image(txt_path)
     # image.show()
-    output_path = './ascii_img/' + os.path.basename(txt_path) + '.jpg'
+    output_path = './tmp/in/' + os.path.basename(txt_path) + '.jpg'
     image.save(output_path)
 
 
@@ -36,18 +36,9 @@ def textfile_to_image(textfile_path):
         lines = tuple(line.rstrip() for line in f.readlines())
 
     # choose a font (you can see more detail in the linked library on github)
-    font = None
+    font = ImageFont.load_default()
     large_font = 20  # get better resolution with larger size
-    for font_filename in COMMON_MONO_FONT_FILENAMES:
-        try:
-            font = ImageFont.truetype(font_filename, size=large_font)
-            print(f'Using font "{font_filename}".')
-            break
-        except IOError:
-            print(f'Could not load font "{font_filename}".')
-    if font is None:
-        font = ImageFont.load_default()
-        print('Using default font.')
+
 
     # make a sufficiently sized background image based on the combination of font and lines
     font_points_to_pixels = lambda pt: round(pt * 96.0 / 72)
