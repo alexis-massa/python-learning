@@ -1,5 +1,7 @@
 import os, glob, sys, shutil
 from natsort import natsorted
+from tkinter import *
+from tkinter import filedialog
 
 import video_to_img
 import img_to_ascii
@@ -46,11 +48,14 @@ def check(video_path):
   os.mkdir('./tmp/out')
   return 1
 
+# Return selected file path
+def openFile():
+  return filedialog.askopenfilename()
 
 def main():
   # Input video path
-  video_path = 'C:/LocalRepository/python-learning/video/video.mp4'
-  # video_path = input("Enter path for the video to convert: ")
+  # video_path = 'C:/LocalRepository/python-learning/video/video.mp4'
+  video_path = openFile()
 
   # Perform checks
   if(check(video_path)==0):
