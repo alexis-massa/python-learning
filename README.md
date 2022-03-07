@@ -1,2 +1,5 @@
 # python-learning
-Run : ./video_to_ascii.py
+##
+Put video to convert in ./video/
+##
+Run : py ./video_to_ascii.py
