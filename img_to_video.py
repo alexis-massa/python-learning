@@ -3,13 +3,21 @@ import glob
 import cv2
 import numpy as np
 from natsort import natsorted
+import re
 
 DIR = './tmp/in/'
 img_array=[]
 
+
+numbers = re.compile(r'(\d+)')
+def numericalSort(value):
+    parts = numbers.split(value)
+    parts[1::2] = map(int, parts[1::2])
+    return parts
+
 def img_to_video():
     # Adds all frames with infos to an array
-    for filename in glob.glob(os.path.join(DIR, "*.jpg")):
+    for filename in sorted(glob.glob(os.path.join(DIR, "*.jpg")), key=numericalSort):
         img = cv2.imread(filename)
         height, width, layers = img.shape
         size = (width,height) # output size (something wrong here)
